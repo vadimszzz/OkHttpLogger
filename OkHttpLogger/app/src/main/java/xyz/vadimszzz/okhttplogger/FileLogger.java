@@ -62,6 +62,9 @@ public class FileLogger {
         }
         try {
             initialize();
+            if (this.fos == null) {
+                return;
+            }
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             this.fos.write(String.format("%-31s %s\n", timestamp, message).getBytes());
             this.fos.flush();

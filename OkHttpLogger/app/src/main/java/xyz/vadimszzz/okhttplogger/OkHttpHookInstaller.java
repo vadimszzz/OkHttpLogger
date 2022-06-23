@@ -9,7 +9,7 @@ import static xdroid.toaster.Toaster.toastLong;
 
 
 /* Log all OkHttp requests. */
-public class OkHttpLogger implements IXposedHookLoadPackage {
+public class OkHttpHookInstaller implements IXposedHookLoadPackage {
     private static String moduleName = "OkHttpLogger";
     private static String fileLoggerFilename = "_requests.log";
     private static Boolean hookOnlyRealRequests = true;

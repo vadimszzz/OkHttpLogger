@@ -52,11 +52,11 @@ public class Exchange_writeRequestHeadersHook extends XC_MethodHook {
             Object url = notNull(XposedHelpers.getObjectField(param.args[0], "url"));
             String urlString = String.valueOf(url);
 
-            OkHttpLogger.getXposedLogger().log(urlString);
-            OkHttpLogger.getFileLogger().log(urlString);
+            OkHttpHookInstaller.getXposedLogger().log(urlString);
+            OkHttpHookInstaller.getFileLogger().log(urlString);
         } catch (Exception e) {
             // Log error and don't crash
-            OkHttpLogger.getXposedLogger().log("failed to get request URL: %s", e);
+            OkHttpHookInstaller.getXposedLogger().log("failed to get request URL: %s", e);
         }
     }
     protected void afterHookedMethod(MethodHookParam param) throws Throwable {

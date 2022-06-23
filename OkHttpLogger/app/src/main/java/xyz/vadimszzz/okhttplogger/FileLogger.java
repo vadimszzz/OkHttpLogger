@@ -28,7 +28,7 @@ public class FileLogger {
                 Application app = (Application) notNull(getContext());
                 this.fos = app.openFileOutput(this.filename, Context.MODE_APPEND);
             } catch(Exception e) {
-                OkHttpLogger.getXposedLogger().log("failed to start logger: %s", e);
+                OkHttpHookInstaller.getXposedLogger().log("failed to start logger: %s", e);
             }
 
             Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -69,7 +69,7 @@ public class FileLogger {
             this.fos.write(String.format("%-31s %s\n", timestamp, message).getBytes());
             this.fos.flush();
         } catch(Exception e) {
-            OkHttpLogger.getXposedLogger().log("failed to log request URL: " + e);
+            OkHttpHookInstaller.getXposedLogger().log("failed to log request URL: " + e);
         }
     }
 }
